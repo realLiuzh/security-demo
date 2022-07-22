@@ -6,10 +6,9 @@ spring:
       discovery:
         server-addr: 47.96.86.132:8848
   redis:
-    database: 0
+    database: 10
     port: 6379
-    host: localhost
-    password:
+    host: 47.96.86.132
 
 # Sa-Token配置
 sa-token:
@@ -34,3 +33,9 @@ sa-token:
 
 server:
   port: 12000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.server.ServerWebExchange;
 
-@Configuration
+//@Configuration
 public class SaTokenConfig {
     /**
      * 注册Sa-Token全局过滤器
@@ -20,11 +20,11 @@ public class SaTokenConfig {
                 // 拦截地址
                 .addInclude("/**")
                 // 开放地址
-                .addExclude("/favicon.ico")
+                .addExclude("/swagger-ui/")
                 // 鉴权方法：每次访问进入
                 .setAuth(r -> {
                     // 登录认证：除登录接口都需要认证
-                    SaRouter.match("/**", "/auth/user/login", StpUtil::checkLogin);
+                    SaRouter.match("/**", "/swagger-ui/", StpUtil::checkLogin);
                     // 权限认证：不同接口访问权限不同
                     SaRouter.match("/api/test/hello", () -> StpUtil.checkPermission("api:test:hello"));
                     SaRouter.match("/api/user/info", () -> StpUtil.checkPermission("api:user:info"));

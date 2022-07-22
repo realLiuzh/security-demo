@@ -39,7 +39,7 @@ public class UserServiceImpl {
     private UserDTO loadUserByUsername(String username) {
         ArrayList<String> list = new ArrayList<>();
         list.add("aaaa");
-        list.add("bb");
+        list.add("api:user:info");
         return new UserDTO(1l, username, "123456", list);
     }
 
